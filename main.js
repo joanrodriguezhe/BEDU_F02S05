@@ -47,9 +47,38 @@ const Persona = function (name) {
 }
 
 const Developer = function (name, skills, yearsOfExperience) {
-    Persona.call(this,name);
+    Persona.call(this, name);
     this.skills = skills;
     this.yearsOfExperience = yearsOfExperience;
 }
 
-console.log(new Developer('John Doe', 'JavaScript', 10));
+//console.log(new Developer('John Doe', 'JavaScript', 10));
+
+//Reto 02
+
+var Group = function () {
+    this.members = [];
+}
+
+Group.from = function (array) {
+    var group = new Group();
+    group.members = [...array];
+    return group;
+}
+
+Group.prototype.has = function (number) {
+    return this.members.includes(number);
+}
+
+Group.prototype.add = function (number) {
+    if (!this.has(number)) {
+        this.members.push(number);
+    }
+}
+
+var group = Group.from([1, 2, 3, 4, 5]);
+console.log(group); // Group { members: [ 1, 2, 3, 4, 5 ] }
+console.log(group.has(5)); // true
+console.log(group.has(10)); // false
+group.add(10);
+console.log(group.has(10)); // true
