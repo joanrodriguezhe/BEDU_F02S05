@@ -62,7 +62,7 @@ var Group = function () {
 
 Group.from = function (array) {
     var group = new Group();
-    group.members = [...array];
+    group.members = [...new Set(array)];
     return group;
 }
 
@@ -71,9 +71,7 @@ Group.prototype.has = function (number) {
 }
 
 Group.prototype.add = function (number) {
-    if (!this.has(number)) {
-        this.members.push(number);
-    }
+    (!this.has(number))? this.members.push(number):null;
 }
 
 var group = Group.from([1, 2, 3, 4, 5]);
