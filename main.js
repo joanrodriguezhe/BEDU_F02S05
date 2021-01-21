@@ -71,12 +71,30 @@ Group.prototype.has = function (number) {
 }
 
 Group.prototype.add = function (number) {
-    (!this.has(number))? this.members.push(number):null;
+    (!this.has(number)) ? this.members.push(number) : null;
 }
 
-var group = Group.from([1, 2, 3, 4, 5]);
+/* var group = Group.from([1, 2, 3, 4, 5]);
 console.log(group); // Group { members: [ 1, 2, 3, 4, 5 ] }
 console.log(group.has(5)); // true
 console.log(group.has(10)); // false
 group.add(10);
-console.log(group.has(10)); // true
+console.log(group.has(10)); // true */
+
+
+//Reto 03
+
+var Triangle = function (a, b, c) {
+    this.a = a;
+    this.b = b;
+    this.c = c;
+}
+
+Triangle.prototype.getPerimeter = function () {
+    return (this.a + this.b + this.c);
+}
+
+var triangle = new Triangle(1, 2, 3);
+
+console.log(triangle); // Triangle { a: 1, b: 2, c: 3 }
+console.log(triangle.getPerimeter()); // 6
