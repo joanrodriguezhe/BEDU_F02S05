@@ -21,13 +21,35 @@ var Vec = function (x, y) {
     this.y = y;
 }
 
-Vec.prototype.plus = () => {
-    return this.x + this.y;
+Vec.prototype.plus = function (vector) {
+    return new Vec(this.x + vector.x, this.y + vector.y);
+}
+Vec.prototype.minus = function (vector) {
+    return new Vec(this.x - vector.x, this.y - vector.y);
+}
+
+Vec.prototype.length = function () {
+    return (this.x ** 2 + this.y ** 2) ** .5;
 }
 
 var vec1 = new Vec(1, 2);
 var vec2 = new Vec(2, 3);
 
-console.log(vec1.plus(vec2)); // Vec { x: 3, y: 5 }
-/* console.log(vec1.minus(vec2)); // Vec { x: -1, y: -1 }
-console.log(vec1.length()); // 2.23606797749979 */
+/* console.log(vec1.plus(vec2)); // Vec { x: 3, y: 5 }
+console.log(vec1.minus(vec2)); // Vec { x: -1, y: -1 }
+console.log(vec1.length()); // 2.23606797749979
+ */
+
+//Ejemplo 2
+
+const Persona = function (name) {
+    this.name = name;
+}
+
+const Developer = function (name, skills, yearsOfExperience) {
+    Persona.call(this,name);
+    this.skills = skills;
+    this.yearsOfExperience = yearsOfExperience;
+}
+
+console.log(new Developer('John Doe', 'JavaScript', 10));
